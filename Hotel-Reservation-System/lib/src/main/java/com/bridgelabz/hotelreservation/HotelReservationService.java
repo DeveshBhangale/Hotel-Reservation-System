@@ -62,7 +62,7 @@ public class HotelReservationService {
 			else
 				temp += n.getRate().get(CustomerType.REWARDS).getWeekdayRate();
 		}
-		if(customerType.equals(CustomerType.REGULAR)){
+		if(customerType.equals(CustomerType.REGULAR)) {
 			if(date_3.toString().equals("SATURDAY") || date_3.toString().equals("SUNDAY"))
 				temp += n.getRate().get(CustomerType.REGULAR).getWeekendRate();
 			else
