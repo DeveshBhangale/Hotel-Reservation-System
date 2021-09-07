@@ -1,24 +1,44 @@
 package com.bridgelabz.hotelreservation;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class HotelReservation {
-	String name;
-	Integer rating;
-	CustomerType customerType;
-	Integer weekdayRates;
-	Integer weekendRates;
+	private String name;
+	private Integer rating;
+	private HashMap<CustomerType,Rate> rate;
 	
 	
-	public HotelReservation(String name, Integer rating, CustomerType customerType, Integer weekdayRates,
-			Integer weekendRates) {
+	public String getName() {
+		return name;
+	}
+
+
+
+
+	public Integer getRating() {
+		return rating;
+	}
+
+
+
+	public HashMap<CustomerType, Rate> getRate() {
+		return rate;
+	}
+
+
+	public HotelReservation(String name, Integer rating, HashMap<CustomerType,Rate> rate) {
 		super();
 		this.name = name;
 		this.rating = rating;
-		this.customerType = customerType;
-		this.weekdayRates = weekdayRates;
-		this.weekendRates = weekendRates;
+		this.rate = rate;
 	}
+
+
+
+	
+	
 	
 	
 }

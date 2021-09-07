@@ -1,28 +1,51 @@
 package com.bridgelabz.hotelreservation;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.Before;
+import org.junit.Test;
 
 public class HotelReservationMain {
 	public ArrayList<HotelReservation> data = new ArrayList<HotelReservation>();
+	HotelReservationService hotelReservationRunner = new HotelReservationService();
+	
 	
 	@Before
 	public void addHotels() {
-		HotelReservation lakewoodRegular = new HotelReservation("lakewood",3,CustomerType.REGULAR,110,90);
-		HotelReservation lakewoodReward = new HotelReservation("lakewood",3,CustomerType.REWARDS,80,80);
+		HashMap<CustomerType,Rate> map = new HashMap<>();
 		
-		HotelReservation bridgewoodRegular = new HotelReservation("bridgewood",4,CustomerType.REGULAR,160,60);
-		HotelReservation bridgewoodReward = new HotelReservation("bridgewood",4,CustomerType.REWARDS,110,50);
+		map.put(CustomerType.REGULAR, new Rate(110,90));
+		map.put(CustomerType.REWARDS, new Rate(80,80));		
+		HotelReservation lakewood = new HotelReservation("lakewood",3,map);
 		
-		HotelReservation ridgewoodRegular = new HotelReservation("ridgewood",3,CustomerType.REGULAR,220,150);
-		HotelReservation ridgewoodReward = new HotelReservation("ridgewood",3,CustomerType.REWARDS,100,40);
+		map = new HashMap<>();
+		map.put(CustomerType.REGULAR, new Rate(160,60));
+		map.put(CustomerType.REWARDS, new Rate(110,50));	
+		HotelReservation bridgewood = new HotelReservation("bridgewood",4,map);
 		
-		data.add(lakewoodRegular);
-		data.add(lakewoodReward);
-		data.add(bridgewoodRegular);
-		data.add(bridgewoodReward);
-		data.add(ridgewoodRegular);
-		data.add(ridgewoodReward);
+		map = new HashMap<>();
+		map.put(CustomerType.REGULAR, new Rate(220,150));
+		map.put(CustomerType.REWARDS, new Rate(100,40));
+		HotelReservation ridgewood = new HotelReservation("ridgewood",3,map);
+		
+		data.add(lakewood);
+		data.add(bridgewood);
+		data.add(ridgewood);
+	}
+	
+	@Test
+	public void checkTestCase1() {
+		hotelReservationRunner.getCheapestHotel(data, CustomerType.REWARDS,"09Sep2021","09Sep2021","09Sep2021");
+	}
+	
+	@Test
+	public void checkTestCase2() {
+		hotelReservationRunner.getCheapestHotel(data, CustomerType.REGULAR,"16Mar2020","17Mar2020","18Mar2020");
+	}
+	
+	@Test
+	public void checkTestCase3() {
+		hotelReservationRunner.getCheapestHotel(data, CustomerType.REWARDS,"26Mar2009","27Mar2009","28Mar2009");
 	}
 }
