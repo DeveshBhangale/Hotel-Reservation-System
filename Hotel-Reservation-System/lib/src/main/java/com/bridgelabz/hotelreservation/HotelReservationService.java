@@ -29,7 +29,7 @@ public class HotelReservationService {
 		String hotel = totalValueOfHotels.entrySet().stream().min((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey();
 		Integer rates = totalValueOfHotels.entrySet().stream().min((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getValue();
 		
-		System.out.println("The Cheapest hotel is "+ hotel +" with total rating of "+ratingOfHotels.get(hotel)+" and total rate "+rates+"$");
+		System.out.println("The Cheapest hotel is "+ hotel +"  with total rating of "+ratingOfHotels.get(hotel)+" and total rate "+rates+"$");
 	}
 
 	private Integer getTotalValue(HotelReservation n, CustomerType customerType, DayOfWeek date_1, DayOfWeek date_2, DayOfWeek date_3) {
