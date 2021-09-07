@@ -29,6 +29,7 @@ public class HotelReservationMain {
 		map.put(CustomerType.REWARDS, new Rate(100,40));
 		HotelReservation ridgewood = new HotelReservation("ridgewood",3,map);
 		
+		
 		data.add(lakewood);
 		data.add(bridgewood);
 		data.add(ridgewood);
