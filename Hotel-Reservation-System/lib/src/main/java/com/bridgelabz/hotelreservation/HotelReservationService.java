@@ -45,6 +45,7 @@ public class HotelReservationService {
 		String hotel = totalValueOfHotels.entrySet().stream().filter(n1 -> ratingOfHotels.get(n1.getKey()).equals(rating))
 				.min((entry1, entry2) -> entry1.getValue() > entry2.getValue() ? 1 : -1).get().getKey();
 		System.out.println("The Cheapest hotel is "+ hotel +"  with best rating of "+ratingOfHotels.get(hotel)+" and total rate "+value+"$");
+		
 	}
 
 	private Integer getTotalValue(HotelReservation n, CustomerType customerType, DayOfWeek date_1, DayOfWeek date_2, DayOfWeek date_3) {
