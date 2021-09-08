@@ -25,14 +25,20 @@ public class HotelReservationMain {
 		HotelReservation bridgewood = new HotelReservation("bridgewood",4,map);
 		
 		map = new HashMap<>();
+		map.put(CustomerType.REGULAR, new Rate(150,50));
+		map.put(CustomerType.REWARDS, new Rate(105,45));
+		HotelReservation taj = new HotelReservation("taj",4,map);
+		
+		map = new HashMap<>();
 		map.put(CustomerType.REGULAR, new Rate(220,150));
 		map.put(CustomerType.REWARDS, new Rate(100,40));
 		HotelReservation ridgewood = new HotelReservation("ridgewood",3,map);
 		
 		
 		data.add(lakewood);
-		data.add(bridgewood);
 		data.add(ridgewood);
+		data.add(taj);
+		data.add(bridgewood);
 	}
 	
 	@Test
